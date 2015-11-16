@@ -14,7 +14,7 @@ AV.Cloud.define('Regist', function (request, response) {
     response.success('Hello world!-->Regist');
 });
 
-AV.Cloud.afterSave('Todo', function (request) {
+AV.Cloud.afterSave('Todo', function (request, response) {
     //输出信息请到「应用控制台 > 存储 > 云引擎 > 日志」中查看
     console.log(request.object);
     request.object.set('from', 'LeanCloud');
