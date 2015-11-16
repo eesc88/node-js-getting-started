@@ -6,14 +6,14 @@ var AV = require('leanengine');
 AV.Cloud.define('hello', function (request, response) {
     response.success('Hello world!');
 });
-AV.Cloud.define('Login', function (request, response) {
-    response.success('Hello world!--Login');
-});
-
-AV.Cloud.define('Regist', function (request, response) {
-    response.success('Hello world!-->Regist');
-});
-
+//AV.Cloud.define('Login', function (request, response) {
+//    response.success('Hello world!--Login');
+//});
+//
+//AV.Cloud.define('Regist', function (request, response) {
+//    response.success('Hello world!-->Regist');
+//});
+//
 //AV.Cloud.afterSave('Todo', function (request, response) {
 //    //输出信息请到「应用控制台 > 存储 > 云引擎 > 日志」中查看
 //    console.log(request.object);
@@ -26,7 +26,7 @@ AV.Cloud.define('Regist', function (request, response) {
 //        }
 //    });
 //});
-
+//
 //AV.Cloud.beforeUpdate('Todo', function (request, response) {
 //    // 如果 comment 字段被修改了，检查该字段的长度
 //    if (request.object.updatedKeys.indexOf('comment') != -1) {
