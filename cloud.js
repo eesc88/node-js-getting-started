@@ -9,6 +9,7 @@ AV.Cloud.define('hello', function (request, response) {
 AV.Cloud.define('Login', function (request, response) {
     response.success('Hello world!--Login');
 });
+
 AV.Cloud.define('Regist', function (request, response) {
     response.success('Hello world!-->Regist');
 });
