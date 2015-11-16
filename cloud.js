@@ -3,7 +3,6 @@ var AV = require('leanengine');
 /**
  * 一个简单的云代码方法
  */
-<<<<<<< HEAD
 AV.Cloud.define('hello', function(request, response) {
   response.success('Hello world!');
 });
@@ -64,5 +63,5 @@ AV.Cloud.beforeUpdate('_User', function (request, response) {
         response.success();
     }
 });
->>>>>>> 4dd5f0a98293032d32868abe5f25cd078e57a792
+
 module.exports = AV.Cloud;
