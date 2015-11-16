@@ -13,6 +13,11 @@
     <ul>
       <% for(var i=0; i<todos.length; i++) {%>
       <li><%= todos[i].get('content') %></li>
+<<<<<<< HEAD
+=======
+      <li><%= todos[i].id %></li>
+      <a href="/todos/delete/<%= todos[i].id %>"  METHODS="DELETE">删除</a>
+>>>>>>> 4dd5f0a98293032d32868abe5f25cd078e57a792
       <% } %>
     </ul>
   </body>

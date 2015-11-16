@@ -5,3 +5,7 @@ start.sh
 *~
 *.swp
 .avoscloud/
+<<<<<<< HEAD
+=======
+.avoscloud/
+>>>>>>> 4dd5f0a98293032d32868abe5f25cd078e57a792
