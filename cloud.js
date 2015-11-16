@@ -7,4 +7,8 @@ AV.Cloud.define('hello', function(request, response) {
   response.success('Hello world!');
 });
 
+AV.Cloud.define('Todo', function(request, response) {
+  response.success('Todo world!');
+});
+
 module.exports = AV.Cloud;
