@@ -27,31 +27,31 @@ AV.Cloud.afterSave('Todo', function (request) {
     });
 });
 
-AV.Cloud.beforeUpdate('Todo', function (request, response) {
-    // 如果 comment 字段被修改了，检查该字段的长度
-    if (request.object.updatedKeys.indexOf('comment') != -1) {
-        if (request.object.get('comment').length <= 140) {
-            response.success();
-        } else {
-            // 拒绝过长的修改
-            response.error('commit 长度不得超过 140 字符');
-        }
-    } else {
-        response.success();
-    }
-});
-
-AV.Cloud.beforeUpdate('_User', function (request, response) {
-    // 如果 comment 字段被修改了，检查该字段的长度
-    if (request.object.updatedKeys.indexOf('comment') != -1) {
-        if (request.object.get('comment').length <= 140) {
-            response.success();
-        } else {
-            // 拒绝过长的修改
-            response.error('commit 长度不得超过 140 字符');
-        }
-    } else {
-        response.success();
-    }
-});
+//AV.Cloud.beforeUpdate('Todo', function (request, response) {
+//    // 如果 comment 字段被修改了，检查该字段的长度
+//    if (request.object.updatedKeys.indexOf('comment') != -1) {
+//        if (request.object.get('comment').length <= 140) {
+//            response.success();
+//        } else {
+//            // 拒绝过长的修改
+//            response.error('commit 长度不得超过 140 字符');
+//        }
+//    } else {
+//        response.success();
+//    }
+//});
+//
+//AV.Cloud.beforeUpdate('_User', function (request, response) {
+//    // 如果 comment 字段被修改了，检查该字段的长度
+//    if (request.object.updatedKeys.indexOf('comment') != -1) {
+//        if (request.object.get('comment').length <= 140) {
+//            response.success();
+//        } else {
+//            // 拒绝过长的修改
+//            response.error('commit 长度不得超过 140 字符');
+//        }
+//    } else {
+//        response.success();
+//    }
+//});
 module.exports = AV.Cloud;
