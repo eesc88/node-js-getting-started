@@ -2,7 +2,7 @@
 var domain = require('domain');
 var express = require('express');
 var path = require('path');
-var session = require('session');
+//var session = require('session');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var todos = require('./routes/todos');
@@ -45,21 +45,21 @@ app.use(cloud);
 //    d.run(next);
 //});
 
-app.get('/', function (req, res) {
-    res.render('index', {currentTime: new Date()});
-    app.use(bodyParser.urlencoded({extended: false}));
-    app.use(cookieParser());
-    app.use(session({
-        secret: '12345',
-        name: 'testapp',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
-        cookie: {
-            maxAge: 80000
-        }
-        ,  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
-        resave: false,
-        saveUninitialized: true,
-    }))
-});
+//app.get('/', function (req, res) {
+//    res.render('index', {currentTime: new Date()});
+//    app.use(bodyParser.urlencoded({extended: false}));
+//    app.use(cookieParser());
+//    app.use(session({
+//        secret: '12345',
+//        name: 'testapp',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+//        cookie: {
+//            maxAge: 80000
+//        }
+//        ,  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
+//        resave: false,
+//        saveUninitialized: true,
+//    }))
+//});
 
 // 未处理异常捕获 middleware
 //app.use(function (req, res, next) {
