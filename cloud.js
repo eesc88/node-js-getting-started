@@ -14,18 +14,18 @@ AV.Cloud.define('Regist', function (request, response) {
     response.success('Hello world!-->Regist');
 });
 
-AV.Cloud.afterSave('Todo', function (request, response) {
-    //输出信息请到「应用控制台 > 存储 > 云引擎 > 日志」中查看
-    console.log(request.object);
-    request.object.set('from', 'LeanCloud');
-    request.object.save(null, {
-        success: function (user) {
-            console.log('ok!');
-        }, error: function (user, error) {
-            console.log('error', error);
-        }
-    });
-});
+//AV.Cloud.afterSave('Todo', function (request, response) {
+//    //输出信息请到「应用控制台 > 存储 > 云引擎 > 日志」中查看
+//    console.log(request.object);
+//    request.object.set('from', 'LeanCloud');
+//    request.object.save(null, {
+//        success: function (user) {
+//            console.log('ok!');
+//        }, error: function (user, error) {
+//            console.log('error', error);
+//        }
+//    });
+//});
 
 //AV.Cloud.beforeUpdate('Todo', function (request, response) {
 //    // 如果 comment 字段被修改了，检查该字段的长度
