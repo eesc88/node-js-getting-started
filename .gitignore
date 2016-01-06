@@ -10,3 +10,5 @@ start.sh
 .avoscloud/
 >>>>>>> 4dd5f0a98293032d32868abe5f25cd078e57a792
 .avoscloud/
+.idea
+/.idea/vcs.xml

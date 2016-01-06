@@ -1,0 +1,10 @@
+var express = require('express');
+var router = express.Router();
+
+
+router.get("/", function (rep, res) {
+    res.success("访问成功");
+});
+
+
+module.exports = router;

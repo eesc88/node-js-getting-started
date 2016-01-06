@@ -2,14 +2,14 @@ var express=require('express');
 var router = express.Router();
 var app=express();
 //app.use(express.logger('dev'));
-////ÓÉÓÚSessionÐèÒª¼ÓÃÜsession_id£¬ËùÒÔÒ»¶¨Òª´«ÈëÒ»¸öÃÜÔ¿×Ö·û´®£¨ÈÎÒâ£©À´¼ÓÃÜ
+////ï¿½ï¿½ï¿½ï¿½Sessionï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½session_idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //app.use(express.logInByIdAndSessionToken());
-////¿¿Õâ¸öÖÐ¼ä¼þÈÃÎÒÃÇ¿ÉÒÔÓÃreq.session.key»ñÈ¡¶ÔÓ¦µÄvalue
+////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½req.session.keyï¿½ï¿½È¡ï¿½ï¿½Ó¦ï¿½ï¿½value
 //app.use(express.);
 var AV = require('leanengine');
 
-// `AV.Object.extend` ·½·¨Ò»¶¨Òª·ÅÔÚÈ«¾Ö±äÁ¿£¬·ñÔò»áÔì³É¶ÑÕ»Òç³ö¡£
-// Ïê¼û£º https://leancloud.cn/docs/js_guide.html#¶ÔÏó
+// `AV.Object.extend` ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½È«ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¶ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ï¿½ https://leancloud.cn/docs/js_guide.html#ï¿½ï¿½ï¿½ï¿½
 var Todo = AV.Object.extend('Todo');
 
 router.get('/login', function (req, res, next) {
@@ -22,23 +22,23 @@ router.get('/register', function (req, res, next) {
 });
 
 
-// ²éÑ¯ Todo ÁÐ±í
+// ï¿½ï¿½Ñ¯ Todo ï¿½Ð±ï¿½
 router.get('/', function (req, res, next) {
     var query = new AV.Query(Todo);
     query.descending('createdAt');
     query.find({
         success: function (results) {
             res.render('login', {
-                title: 'TODO ÁÐ±í',
+                title: 'TODO ï¿½Ð±ï¿½',
                 todos: results
             });
         },
         error: function (err) {
             if (err.code === 101) {
-                // ¸Ã´íÎóµÄÐÅÏ¢Îª£º{ code: 101, message: 'Class or object doesn\'t exists.' }£¬ËµÃ÷ Todo Êý¾Ý±í»¹Î´´´½¨£¬ËùÒÔ·µ»Ø¿ÕµÄ Todo ÁÐ±í¡£
-                // ¾ßÌåµÄ´íÎó´úÂëÏê¼û£ºhttps://leancloud.cn/docs/error_code.html
+                // ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Îªï¿½ï¿½{ code: 101, message: 'Class or object doesn\'t exists.' }ï¿½ï¿½Ëµï¿½ï¿½ Todo ï¿½ï¿½ï¿½Ý±ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ï¿½Ø¿Õµï¿½ Todo ï¿½Ð±ï¿½
+                // ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½https://leancloud.cn/docs/error_code.html
                 res.render('login', {
-                    title: 'TODO ÁÐ±í',
+                    title: 'TODO ï¿½Ð±ï¿½',
                     todos: []
                 });
             } else {
@@ -48,7 +48,7 @@ router.get('/', function (req, res, next) {
     });
 });
 
-// ÐÂÔö Todo ÏîÄ¿
+// ï¿½ï¿½ï¿½ï¿½ Todo ï¿½ï¿½Ä¿
 router.post('/login', function (req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
@@ -67,7 +67,7 @@ router.post('/login', function (req, res, next) {
     })
 })
 
-router.post('/doLogin', function (req, res, next) {
+router.post('/doLogin', function (req, res) {
     var username = req.body.username;
     var password = req.body.password;
     console.log('username:' + username + "--password:" + password);
@@ -75,7 +75,7 @@ router.post('/doLogin', function (req, res, next) {
         success: function (user) {
             //req.session.
             //req.session.user_id = JSON.stringify(user);
-            req.session.user_id = user.id; //Ã¿Ò»´Î·ÃÎÊÊ±£¬session¶ÔÏóµÄlastPage»á×Ô¶¯µÄ±£´æ»ò¸üÐÂÄÚ´æÖÐµÄsessionÖÐÈ¥¡£
+            req.session.user_id = user.id; //Ã¿Ò»ï¿½Î·ï¿½ï¿½ï¿½Ê±ï¿½ï¿½sessionï¿½ï¿½ï¿½ï¿½ï¿½lastPageï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ðµï¿½sessionï¿½ï¿½È¥ï¿½ï¿½
             req.session.user=JSON.stringify(user);
             res.send('1');
         }, error: function (error) {
@@ -92,7 +92,7 @@ router.post('/doRegist', function (req, res, next) {
     console.log('username:' + username + "--password:" + password);
     if (!username || username.trim().length == 0
         || !password || password.trim().length == 0) {
-        return res.redirect('/users/register?errMsg=ÓÃ»§Ãû»òÃÜÂë²»ÄÜÎª¿Õ');
+        return res.redirect('/users/register?errMsg=ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Îªï¿½ï¿½');
     }
     var user = new AV.User();
     user.set("username", username);

@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var todos = require('./routes/todos');
 var user = require('./routes/user');
 var index = require('./routes/index');
+var weixin=require('./routes/weixin');
 var cloud = require('./cloud');
 
 var app = express();
@@ -20,67 +21,7 @@ app.use(express.static('public'));
 // 加载云代码方法
 app.use(cloud);
 
-//app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({extended: false}));
-//app.use(cookieParser());
 
-// 未处理异常捕获 middleware
-//app.use(function (req, res, next) {
-//    var d = null;
-//    if (process.domain) {
-//        d = process.domain;
-//    } else {
-//        d = domain.create();
-//    }
-//    d.add(req);
-//    d.add(res);
-//    d.on('error', function (err) {
-//        console.error('uncaughtException url=%s, msg=%s', req.url, err.stack || err.message || err);
-//        if (!res.finished) {
-//            res.statusCode = 500;
-//            res.setHeader('content-type', 'application/json; charset=UTF-8');
-//            res.end('uncaughtException');
-//        }
-//    });
-//    d.run(next);
-//});
-
-//app.get('/', function (req, res) {
-//    res.render('index', {currentTime: new Date()});
-//    app.use(bodyParser.urlencoded({extended: false}));
-//    app.use(cookieParser());
-//    app.use(session({
-//        secret: '12345',
-//        name: 'testapp',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
-//        cookie: {
-//            maxAge: 80000
-//        }
-//        ,  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
-//        resave: false,
-//        saveUninitialized: true,
-//    }))
-//});
-
-// 未处理异常捕获 middleware
-//app.use(function (req, res, next) {
-//    var d = null;
-//    if (process.domain) {
-//        d = process.domain;
-//    } else {
-//        d = domain.create();
-//    }
-//    d.add(req);
-//    d.add(res);
-//    d.on('error', function (err) {
-//        console.error('uncaughtException url=%s, msg=%s', req.url, err.stack || err.message || err);
-//        if (!res.finished) {
-//            res.statusCode = 500;
-//            res.setHeader('content-type', 'application/json; charset=UTF-8');
-//            res.end('uncaughtException');
-//        }
-//    });
-//    d.run(next);
-//});
 
 app.get('/', function (req, res) {
     res.render('index', {currentTime: new Date()});
@@ -89,12 +30,10 @@ app.get('/', function (req, res) {
 // 可以将一类的路由单独保存在一个文件中
 app.use('/todos', todos);
 
-// 如果任何路由都没匹配到，则认为 404
 app.use('/user', user);
+app.use('/weixin', weixin);
 app.use('/index', index);
 
-// 如果任何路由都没匹配到，则认为 404
-// 生成一个异常让后面的 err handler 捕获
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
